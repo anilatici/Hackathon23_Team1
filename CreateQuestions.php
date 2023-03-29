@@ -187,7 +187,7 @@ function addRadio(){
         divRow.appendChild(checkboxDiv);
         
         var checkboxLabel = document.createElement("label");
-        checkboxLabel.innerHTML = String.fromCharCode(65 + i);
+        checkboxLabel.innerHTML = "Correct Answer  ";
         checkboxDiv.appendChild(checkboxLabel);
         
         var checkbox = document.createElement("input");

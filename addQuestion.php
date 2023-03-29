@@ -13,10 +13,11 @@ $questions = $_POST['questions'];
     $lastId = $conn->lastInsertId();
 
     foreach($questions as $question) {
-        $sql = "INSERT INTO questions (question_text,question_group) VALUES (?,?)";
+        $sql = "INSERT INTO questions (question_text,question_group,question_type) VALUES (?,?,?)";
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(1, $question["question"]);
         $stmt->bindParam(2, $lastId);
+        $stmt->bindParam(3, $question["type"]);
         $stmt->execute();
         $stmt->closeCursor();
         $lastId = $conn->lastInsertId();

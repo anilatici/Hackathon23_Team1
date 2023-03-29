@@ -14,7 +14,8 @@ CREATE TABLE `questiongroups` (
 CREATE TABLE questions (
                            question_id INT PRIMARY KEY AUTO_INCREMENT,
                            question_text TEXT NOT NULL,
-                            question_group_id INT NOT NULL
+                            question_group_id INT NOT NULL,
+                            question_type INT DEFAULT  NULL
 );
 
 
