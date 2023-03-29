@@ -1,4 +1,20 @@
 <!-- signup.php -->
+
+<php include='header.php'; ?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up</title>
+        <!-- Bootstrap core CSS -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="mystyle.css?v=1" rel="stylesheet">
+</head>
+<body>
+<?php include('nav.php'); ?>
+    <h2>Sign Up</h2>
+
     <?php
         // define variables and set to empty values
         $nameErr = $emailErr = $passwordErr = $confirmPasswordErr = "";
@@ -98,7 +114,6 @@
   </head>
   <body>
     <!-- nav bar file -->
-	<?php include('nav.php'); ?>
 
   <main class="container my-5">
     <div class="starter-template text-center">
@@ -137,4 +152,3 @@
 	<?php include('footer.php'); ?>
   </body>
 </html>
-

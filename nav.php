@@ -19,6 +19,12 @@
           <a class="nav-link" aria-current="page" href="signup.php">Sign Up</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="login.php">Log In</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="logout.php">Log Out</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" aria-current="page" href="contact-form.php">Contact Us</a>
         </li>
       </ul>
