@@ -1,78 +1,125 @@
+
 <?php
 
 $errors = '';
-$myemail = 'd00245674@student.dkit.ie';// <-----Put your DkIT email address here.
+$myemail = 'd00251844@student.dkit.ie';// <-----Put your DkIT email address here.
 if(empty($_POST['name'])  ||
-   empty($_POST['email']) ||
-   empty($_POST['message']) ||
-   empty($_POST['phone']) ||
-   empty($_POST['subject']) ||
-   empty($_POST['category']) ||
-   empty($_POST['company']) ||
-   empty($_POST['department']) ||
-   empty($_POST['country']) ||
-   empty($_POST['city']))
+    empty($_POST['email']) ||
+    empty($_POST['phone']) ||
+    empty($_POST['terms']) ||
+    empty($_POST['birthdate']) ||
+    empty($_POST['gender']) ||
+    empty($_POST['country']) ||
+    empty($_POST['datetime']) ||
+    empty($_POST['file']) ||
+    empty($_POST['message']))
 {
     $errors .= "\n Error: all fields are required";
 }
 
+$headers = '';
 // Important: Create email headers to avoid spam folder
-$headers = 'From: '.$myemail."\r\n".
+$headers .= 'From: '.$myemail."\r\n".
     'Reply-To: '.$myemail."\r\n" .
     'X-Mailer: PHP/' . phpversion();
 
-
 $name = $_POST['name'];
 $email_address = $_POST['email'];
-$message = $_POST['message'];
 $phone = $_POST['phone'];
-$subject = $_POST['subject'];
-$category = $_POST['category'];
-$newsletter = $_POST['newsletter'];
-$company = $_POST['company'];
-$department = $_POST['department'];
+$terms = $_POST['terms'];
+$birthdate = $_POST['birthdate'];
+$gender = $_POST['gender'];
 $country = $_POST['country'];
-$city = $_POST['city'];
+$datetime = $_POST['datetime'];
+$file = $_POST['file'];
+$message = $_POST['message'];
 
 if (!preg_match(
-"/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/i",
-$email_address))
+    "/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/i",
+    $email_address))
 {
     $errors .= "\n Error: Invalid email address";
 }
 
-if (!preg_match(
-    "/^\d{3}-?\d{3}-?\d{4}$/",
-    $phone))
-    {
-        $errors .= "\n Error: Invalid phone number";
+if (empty($name)) {
+    $errors .= 'Please enter your NAME<br>';
+}
+
+
+if( empty($errors)) {
+    $to = $myemail;
+    $email_subject = "Contact form submission: $name";
+    $email_body = "You have received a new message. " .
+
+        " Here are the details:\n  
+        Name: $name \n         
+        Email: $email_address \n 
+        Birthdate: $birthdate \n 
+        Phone: $phone \n 
+        Terms: $terms \n 
+        Gender: $gender \n 
+        Country: $country \n 
+        Datetime: $datetime \n 
+        File: $file \n
+        Message: \n $message";
+
+    mail($to, $email_subject, $email_body, $headers);
+
+
+
+
+
+// Insert data into table
+// Change the database credentials according to your setup
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "restaurant";
+
+// Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+// Prepare and bind the parameters
+    $stmt = $conn->prepare("INSERT INTO messages (name, email, phone, terms, 
+                      birthdate, gender, country, datetime, file, message) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("ssssssssss", $name, $email_address, $phone, $terms, $birthdate, $gender, $country, $datetime, $file, $message);
+
+// Execute the query
+    if ($stmt->execute() === TRUE) {
+        // Redirect to the 'thank you' page
+        header('Location: thank-you.php');
+    } else {
+        // Display an error message
+
+
+        //redirect to the 'thank you' page
+        header('Location: thank-you.php');
+        echo "Error: " . $stmt->error;
+
+        $stmt->close();
+        $conn->close();
+
+        exit();
     }
 
 
-if( empty($errors))
-{
-        $to = $myemail;
-        $email_subject = "Contact form submission: $name";
-        $email_body = "You have received a new message. ".
-        " Here are the details:\n Name: $name \n ".
-        "Email: $email_address \n Phone: $phone \n ".
-        "Subject: $subject \n Company: $company \n ".
-        "Department: $department \n Country: $country \n ".
-        "City: $city \n Message: \n $message";
 
-        mail($to,$email_subject,$email_body,$headers);
-        //redirect to the 'thank you' page
-        header('Location: contact-form-thank-you.php');
+
+
+
+
 }
+
+
 ?>
 <!DOCTYPE HTML>
 <html>
 <head>
-        <title>Contact form handler</title>
-		<!-- Bootstrap core CSS -->
-<link href="css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom styles for this template -->
-    <link href="mystyle.css" rel="stylesheet">
+    <title>Contact form handler</title>
 </head>
 
 <body>
@@ -82,3 +129,23 @@ echo nl2br($errors);
 ?>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

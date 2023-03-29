@@ -2189,7 +2189,7 @@
       } // If this is a touch-enabled device we add extra
       // empty mouseover listeners to the body's immediate children;
       // only needed because of broken event delegation on iOS
-      // https://www.quirksmode.org/blog/archives/2014/02/mouse_event_bub.html
+      // https://www.quirksmode.org/blog/archives/2014/02/mouse_event_bub.php
 
 
       if ('ontouchstart' in document.documentElement && !parent.closest(SELECTOR_NAVBAR_NAV)) {
@@ -3523,7 +3523,7 @@
       } // If this is a touch-enabled device we add extra
       // empty mouseover listeners to the body's immediate children;
       // only needed because of broken event delegation on iOS
-      // https://www.quirksmode.org/blog/archives/2014/02/mouse_event_bub.html
+      // https://www.quirksmode.org/blog/archives/2014/02/mouse_event_bub.php
 
 
       if ('ontouchstart' in document.documentElement) {
@@ -3651,7 +3651,7 @@
         } // content is a DOM node or a jQuery
 
 
-        if (this.config.html) {
+        if (this.config.php) {
           if (content.parentNode !== element) {
             element.innerHTML = '';
             element.appendChild(content);
@@ -3663,7 +3663,7 @@
         return;
       }
 
-      if (this.config.html) {
+      if (this.config.php) {
         if (this.config.sanitize) {
           content = sanitizeHtml(content, this.config.allowList, this.config.sanitizeFn);
         }
