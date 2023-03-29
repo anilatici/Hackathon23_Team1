@@ -20,15 +20,13 @@
   <main class="container my-5">
     <div class="starter-template text-center">
       <h1>Welcome to EnQuizment</h1>
-      <p class="lead">This database contains information about NASA missions, astronauts, and rockets.</p>
-      <p>Please select a category from the navigation bar or click a mission below to get started.</p>
-      <h3>NASA Missions</h3>
+      <h3>EnQUIZment</h3>
     </div>
     <div class="container">
 
     </div>
   </div>
-  
+
     </section><br><br><br>
   </main><!-- /.container -->
     <script src="js/bootstrap.bundle.min.js"></script>
