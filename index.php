@@ -32,12 +32,6 @@ $stmt->execute();
 $questions = $stmt->fetchAll();
 $stmt->closeCursor();
 
-// Get Missions
-$queryMissions = 'SELECT * FROM missions';
-$statement = $db->prepare($queryMissions);
-$statement->execute();
-$missions = $statement->fetchAll();
-$statement->closeCursor();
 ?>
 <!doctype html>
 <html lang="en">
