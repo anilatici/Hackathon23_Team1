@@ -4,10 +4,17 @@ CREATE DATABASE IF NOT EXISTS QuizzApp;
 
 USE QuizzApp;
 
+CREATE TABLE `questiongroups` (
+                                  `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+                                  `title` varchar(255) NOT NULL,
+                                  `user_id` int(11) DEFAULT NULL
+
+);
 
 CREATE TABLE questions (
                            question_id INT PRIMARY KEY AUTO_INCREMENT,
-                           question_text TEXT NOT NULL
+                           question_text TEXT NOT NULL,
+                            question_group_id INT NOT NULL
 );
 
 
