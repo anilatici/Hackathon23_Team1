@@ -61,7 +61,7 @@ $stmt->closeCursor();
         <div class="card mb-4">
           <div class="card-body">
             <h5 class="card-title"><?php echo $question["title"]; ?></h5>
-            <a href="mission.php?id=<?php echo $question['id']; ?>" class="btn btn-primary">More Details</a>
+            <a href="viewQuestion.php?id=<?php echo $question['id']; ?>" class="btn btn-primary">More Details</a>
           </div>
         </div>
       </div>
