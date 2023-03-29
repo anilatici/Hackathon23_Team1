@@ -4,7 +4,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "userdb";
+$dbname = "quizzapp";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -43,6 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       session_start();
       $_SESSION["name"] = $row["name"];
       $_SESSION["email"] = $row["email"];
+      $_SESSION["id"] = $row["userid"];
 
       // Step 7: Redirect to the homepage
       header("Location: index.php");

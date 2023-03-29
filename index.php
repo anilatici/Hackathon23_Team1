@@ -4,33 +4,22 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 include 'database.php';
 session_start();
-if(isset($_SESSION['email'])){
-    $email = $_SESSION['email'];
-    $sql = "SELECT * FROM users WHERE email = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bindParam(1, $email);
-    $stmt->execute();
-    $user = $stmt->fetch();
-    $stmt->closeCursor();
-}
 
-$sql2 = "SELECT * FROM users WHERE email = ?";
-$stmt = $conn->prepare($sql2);
-$stmt->bindParam(1, $email);
-$stmt->execute();
-$user = $stmt->fetch();
-$stmt->closeCursor();
-
-if(isset($_SESSION["email"])){
+if(isset($_SESSION["id"])){
+    $id = $_SESSION["id"];
     $sql = "SELECT * FROM questionGroups inner join questions on questionGroups.id = questions.question_id where questionGroups.user_id = ?";
-    $stmt->bindParam(1, $user["id"]);
+    $loggedin = true;
 } else {
     $sql = "SELECT * FROM questionGroups inner join questions on questionGroups.id = questions.question_id where questionGroups.id = 1";
 }
 $stmt = $conn->prepare($sql);
+if($loggedin){
+    $stmt->bindParam(1, $id);
+}
 $stmt->execute();
 $questions = $stmt->fetchAll();
 $stmt->closeCursor();
+
 
 ?>
 <!doctype html>
@@ -56,7 +45,9 @@ $stmt->closeCursor();
     </div>
     <div class="container">
   <div class="row">
-    <?php foreach ($questions as $question) : ?>
+    <?php
+    var_dump($_SESSION);
+    foreach ($questions as $question) : ?>
       <div class="col-md-4">
         <div class="card mb-4">
           <div class="card-body">
