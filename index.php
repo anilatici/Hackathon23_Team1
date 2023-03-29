@@ -1,4 +1,36 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+include 'database.php';
+session_start();
+if(isset($_SESSION['email'])){
+    $email = $_SESSION['email'];
+    $sql = "SELECT * FROM users WHERE email = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(1, $email);
+    $stmt->execute();
+    $user = $stmt->fetch();
+    $stmt->closeCursor();
+}
+
+$sql2 = "SELECT * FROM users WHERE email = ?";
+$stmt = $conn->prepare($sql2);
+$stmt->bindParam(1, $email);
+$stmt->execute();
+$user = $stmt->fetch();
+$stmt->closeCursor();
+
+if(isset($_SESSION["email"])){
+    $sql = "SELECT * FROM questionGroups inner join questions on questionGroups.id = questions.question_id where questionGroups.user_id = ?";
+    $stmt->bindParam(1, $user["id"]);
+} else {
+    $sql = "SELECT * FROM questionGroups inner join questions on questionGroups.id = questions.question_id where questionGroups.id = 1";
+}
+$stmt = $conn->prepare($sql);
+$stmt->execute();
+$questions = $stmt->fetchAll();
+$stmt->closeCursor();
 
 ?>
 <!doctype html>
@@ -23,7 +55,11 @@
       <h3>EnQUIZment</h3>
     </div>
     <div class="container">
-
+        <?php
+        foreach($questions as $question){
+            echo '<a href="viewQuestion.php/?id='.$question["id"].'">'.$question["title"].'</a>';
+        }
+        ?>
     </div>
   </div>
 
