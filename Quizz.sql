@@ -10,6 +10,8 @@ CREATE TABLE questions (
                            question_text TEXT NOT NULL
 );
 
+
+
 CREATE TABLE answers (
                          answer_id INT PRIMARY KEY AUTO_INCREMENT,
                          question_id INT NOT NULL,
@@ -32,6 +34,8 @@ CREATE TABLE users (
                         email varchar(255) NOT NULL,
                         password varchar(255) NOT NULL
 );
+
+
 
 
 INSERT INTO questions (question_id, question_text)
