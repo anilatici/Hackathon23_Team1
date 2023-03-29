@@ -1,6 +1,6 @@
+
 <?php
 
-// Step 1: Connect to the database
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -24,7 +24,6 @@ echo "
   </form>
 ";
 
-// Step 3: Validate input
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $email = $_POST["email"];
   $password = $_POST["password"];
@@ -34,23 +33,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     exit;
   }
 
-  // Step 4: Query the database
   $sql = "SELECT * FROM users WHERE email='$email'";
   $result = $conn->query($sql);
 
   if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
 
-    // Step 5: Check the password
     if (password_verify($password, $row['password'])) {
 
-      // Step 6: Start the session
       session_start();
       $_SESSION["name"] = $row["name"];
       $_SESSION["email"] = $row["email"];
       $_SESSION["id"] = $row["id"];
 
-      // Step 7: Redirect to the homepage
       header("Location: index.php");
       exit;
     } else {
