@@ -1,13 +1,4 @@
 <!-- signup.php -->
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Sign Up</title>
-</head>
-<body>
-    <h2>Sign Up</h2>
-
     <?php
         // define variables and set to empty values
         $nameErr = $emailErr = $passwordErr = $confirmPasswordErr = "";
@@ -93,23 +84,57 @@
             return $data;
         }
     ?>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="images/favicon.png" />
+    <title>Sign Up</title>
+    <!-- Bootstrap core CSS -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="mystyle.css?v=1" rel="stylesheet">
+  </head>
+  <body>
+    <!-- nav bar file -->
+	<?php include('nav.php'); ?>
 
-    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-        Name: <input type="text" name="name">
-        <span class="error">* <?php echo $nameErr;?></span>
-        <br><br>
-        E-mail: <input type="text" name="email">
-        <span class="error">* <?php echo $emailErr;?></span>
-        <br><br>
-        Password: <input type="password" name="password">
-        <br>Password must be at least 6 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character (!@#$%^&*())
-        <span class="error">* <?php echo $passwordErr;?></span>
-        <br><br>
-        Confirm Password: <input type="password" name="confirmPassword">
-        <span class="error">* <?php echo $confirmPasswordErr;?></span>
-        <br><br>
-        <input type="submit" name="submit" value="Submit">
-    </form>
-</body>
+  <main class="container my-5">
+    <div class="starter-template text-center">
+      <h1>Sign Up</h1>
+    </div>
+    <div class="container">
+    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" class="needs-validation" novalidate>
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input type="text" class="form-control" id="name" name="name" required>
+    <div class="invalid-feedback">Please enter your name.</div>
+  </div>
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input type="email" class="form-control" id="email" name="email" required>
+    <div class="invalid-feedback">Please enter a valid email address.</div>
+  </div>
+  <div class="form-group">
+    <label for="password">Password:</label>
+    <input type="password" class="form-control" id="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()]).{6,}" title="Password must be at least 6 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character (!@#$%^&*())" required>
+    <div class="invalid-feedback">Password must be at least 6 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character (!@#$%^&*()).</div>
+  </div>
+  <div class="form-group">
+    <label for="confirmPassword">Confirm Password:</label>
+    <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required>
+    <div class="invalid-feedback">Please confirm your password.</div>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+    </div>
+  </div>
+    </section><br><br><br>
+  </main><!-- /.container -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- footer file -->
+	<?php include('footer.php'); ?>
+  </body>
 </html>
 
