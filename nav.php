@@ -16,7 +16,7 @@
           <a class="nav-link" aria-current="page" href="CreateQuestions.php">Create Questions</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="sign-up.php">Sign Up</a>
+          <a class="nav-link" aria-current="page" href="signup.php">Sign Up</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="contact-form.php">Contact Us</a>
