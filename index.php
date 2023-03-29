@@ -8,10 +8,10 @@ session_start();
 $loggedin = false;
 if(isset($_SESSION["id"])){
     $id = $_SESSION["id"];
-    $sql = "SELECT * FROM questionGroups inner join questions on questionGroups.id = questions.question_id where questionGroups.user_id = ?";
+    $sql = "SELECT * FROM questionGroups  where questionGroups.user_id = ?";
     $loggedin = true;
 } else {
-    $sql = "SELECT * FROM questionGroups inner join questions on questionGroups.id = questions.question_id where questionGroups.id = 1";
+    $sql = "SELECT * FROM questionGroups where questionGroups.id = 1";
 }
 $stmt = $conn->prepare($sql);
 if($loggedin){
@@ -21,6 +21,22 @@ $stmt->execute();
 $questions = $stmt->fetchAll();
 $stmt->closeCursor();
 
+foreach($questions as $key => $question) {
+    $sql = "SELECT * FROM questions where questions.question_group = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(1, $question["id"]);
+    $stmt->execute();
+    $questions[$key]["question"] = $stmt->fetchAll();
+    $stmt->closeCursor();
+    foreach($questions[$key]["question"] as $key2 => $question2) {
+        $sql = "SELECT * FROM answers where answers.question_id = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(1, $question2["id"]);
+        $stmt->execute();
+        $questions[$key]["question"][$key2]["answer"] = $stmt->fetchAll();
+        $stmt->closeCursor();
+    }
+}
 
 ?>
 <!doctype html>
@@ -46,14 +62,15 @@ $stmt->closeCursor();
     </div>
     <div class="container">
   <div class="row">
+
     <?php
-    var_dump($_SESSION);
     foreach ($questions as $question) : ?>
+
       <div class="col-md-4">
         <div class="card mb-4">
           <div class="card-body">
             <h5 class="card-title"><?php echo $question["title"]; ?></h5>
-            <a href="viewQuestion.php?id=<?php echo $question['id']; ?>" class="btn btn-primary">More Details</a>
+            <button class="btn btn-primary">More Details</button>
           </div>
         </div>
       </div>
