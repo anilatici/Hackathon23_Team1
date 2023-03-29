@@ -6,23 +6,23 @@ USE QuizzApp;
 
 
 CREATE TABLE questions (
-                           question_id INTEGER PRIMARY KEY,
+                           question_id INT PRIMARY KEY AUTO_INCREMENT,
                            question_text TEXT NOT NULL
 );
 
 CREATE TABLE answers (
-                         answer_id INTEGER PRIMARY KEY,
-                         question_id INTEGER NOT NULL,
+                         answer_id INT PRIMARY KEY AUTO_INCREMENT,
+                         question_id INT NOT NULL,
                          answer_text TEXT NOT NULL,
                          is_correct BOOLEAN NOT NULL,
                          FOREIGN KEY (question_id) REFERENCES questions(question_id)
 );
 
 CREATE TABLE scores (
-                        score_id INTEGER PRIMARY KEY,
+                        score_id INT PRIMARY KEY AUTO_INCREMENT,
                         quiz_taker_name TEXT NOT NULL,
                         quiz_taker_email TEXT NOT NULL,
-                        quiz_taker_score INTEGER NOT NULL,
+                        quiz_taker_score INT NOT NULL,
                         quiz_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
