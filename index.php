@@ -15,12 +15,12 @@
             <div class="mainIndex">
 
                 <div class="starter-template text-center" style="padding: 25px">
-                    <h1 class="my-heading">KFC Restaurants, IRELAND </h1>
-                    <p class="my-heading" class="lead">Select your Favorite<br>
-                        Always making you happy</p> <br>
+                    <h1 class="my-heading">EnQUIZment</h1>
+                    <p class="my-heading" class="lead">Engaging the learning Experience<br>
+                        Welcome</p> <br>
                 </div>
 
-                <div class="flex">
+                <!-- <div class="flex">
                     <div>
                         <img class="BrotherBear" src="Pictures/image01.jpg" alt=""/>
                         <p>DUNDALK</p>
@@ -45,7 +45,7 @@
                         <img class="BrotherBear" src="Pictures/image06.jpg" alt=""/>
                         <p>DUBLIN</p>
                     </div>
-                </div>
+                </div> -->
 
             </div>
 

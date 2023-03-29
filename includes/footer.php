@@ -19,25 +19,14 @@
                 <div class = "infoBox">
                     <div>
                         <span><ion-icon name="location"></ion-icon></span>
-                        <a href = "https://www.dkit.ie/" >Server Side Development, DKIT Dundalk, IRELAND</a>
+                        <a href = "https://www.dkit.ie/" >DkIT Hackathon 2023 Team 1</a>
                     </div>
-                    <div>
-                        <span><ion-icon name="mail"></ion-icon></span>
-                        <a href = "mailto:d00251844@student.dkit.ie" > d00251844@student.dkit.ie </a>
-                    </div>
-                    <div>
-                        <span><ion-icon name="call"></ion-icon></span>
-                        <a href = "tel: +353830678444" > +353 830 678 444 </a>
-                    </div>
-                    <!-- Social Media Links -->
-
-
                 </div>
 
 
             </div>
             <div>
-                <p>©2023 Abielinsky</p>
+                <p>©2023 EnQuizment</p>
             </div>
         </div>
     </div>

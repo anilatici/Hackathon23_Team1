@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.80.0">
-    <title>Starter Template · Bootstrap v5.0</title>
+    <title>EnQuizment</title>
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
@@ -53,27 +53,27 @@
         </style>
 
 
-
+            
         <div class="collapse navbar-collapse" id="navbarsExample07">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             </ul>
             <span class="d-flex">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
              <li class="nav-item">
-             <a class="nav-link"  class="navbar-brand" href="index.php">MAIN</a>
+             <a class="nav-link"  class="navbar-brand" href="index.php">HOME</a>
                 </li>
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="page-1.php">RESTAURANTS</a>
+                <a class="nav-link" aria-current="page" href="page-1.php">QUIZES</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="page-2.php">FOOD</a>
+                <a class="nav-link" aria-current="page" href="sign-up.php">SIGN UP</a>
               </li>
-<!--              <li class="nav-item">-->
-<!--                <a class="nav-link" aria-current="page" href="page-3.php">Page 3</a>-->
-<!--              </li>-->
-<!--                </li>-->
+             <li class="nav-item">
+               <a class="nav-link" aria-current="page" href="page-3.php">LOGIN</a>
+             </li>
+               </li>
                 <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="contact.php">CONTACT</a>
+                <a class="nav-link" aria-current="page" href="contact.php">CONTACT US</a>
                 </li>
             </ul>
           </span>
