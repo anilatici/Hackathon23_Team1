@@ -1,4 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="images/icon.png" />
+    <title>EnQUIZment</title>
+    <!-- Bootstrap core CSS -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="mystyle.css?v=1" rel="stylesheet">
+  </head>
+  <body>
+    <!-- nav bar file -->
+	<?php include('nav.php'); ?>
 
+  <main class="container my-5">
+    <div class="starter-template text-center">
+    </div>
+    <div class="container">
 <?php
 
 $servername = "localhost";
@@ -72,4 +91,13 @@ $conn->close();
 	<?php include('footer.php'); ?>
   </body>
 </html>
+
+
+
+
+
+
+
+
+
 
