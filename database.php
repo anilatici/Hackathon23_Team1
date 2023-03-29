@@ -1,7 +1,7 @@
 <?php
 
 
-$dsn = 'mysql:host=localhost;dbname=';
+$dsn = 'mysql:host=localhost;dbname=quizzapp';
 $username = 'root';
 $password = '';
 
