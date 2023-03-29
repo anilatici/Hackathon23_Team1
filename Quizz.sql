@@ -14,8 +14,7 @@ CREATE TABLE `questiongroups` (
 CREATE TABLE questions (
                            question_id INT PRIMARY KEY AUTO_INCREMENT,
                            question_text TEXT NOT NULL,
-                            question_group_id INT NOT NULL,
-                            question_type INT DEFAULT  NULL
+                            question_group_id INT NOT NULL
 );
 
 
@@ -46,13 +45,13 @@ CREATE TABLE users (
 
 
 
-INSERT INTO questions (question_id, question_text)
+INSERT INTO questions (question_id, question_text,question_group_id)
 VALUES
-    (1, 'What is the capital of France?'),
-    (2, 'What is the tallest mountain in the world??'),
-    (3, 'What is the largest country in the world by area"?'),
-    (4, 'What is the smallest planet in our solar system?'),
-    (5, 'Who wrote the book "1984?');
+    (1, 'What is the capital of France?',1),
+    (2, 'What is the tallest mountain in the world??',1),
+    (3, 'What is the largest country in the world by area"?',1),
+    (4, 'What is the smallest planet in our solar system?',1),
+    (5, 'Who wrote the book "1984?',1);
 
 
 
