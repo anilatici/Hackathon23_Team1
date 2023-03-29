@@ -88,3 +88,58 @@ body {
     line-height: 1.5;
     color: #343a40;
   }
+
+  /* Center the modal */
+.modal {
+    text-align: center;
+  }
+  
+  /* Style the modal content */
+  .modal-content {
+    display: inline-block;
+    text-align: left;
+  }
+  
+  /* Style the close button */
+  .close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 10px;
+    font-size: 30px;
+    font-weight: bold;
+    color: #000;
+    opacity: 0.5;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    opacity: 1;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  /* Style the modal header */
+  .modal-header {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  /* Style the modal body */
+  .modal-body {
+    padding: 20px;
+  }
+  
+  /* Style the modal footer */
+  .modal-footer {
+    padding: 10px 20px;
+    background-color: #f9f9f9;
+  }
+  
+  /* Style the backdrop */
+  .modal-backdrop {
+    background-color: #000;
+    opacity: 0.5;
+  }

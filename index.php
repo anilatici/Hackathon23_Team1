@@ -61,11 +61,46 @@ $stmt->closeCursor();
   </div>
 </div>
 
+
+
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal body -->
+      <div class="modal-body">
+        <!-- Content to display in the modal -->
+      </div>
+    </div>
+  </div>
+</div>
+
+
   </div>
 
     </section><br><br><br>
   </main><!-- /.container -->
     <script src="js/bootstrap.bundle.min.js"></script>
+<script>
+  $(document).ready(function() {
+    // Add a click event listener to the "More Details" button
+    $('.btn-primary').click(function() {
+      // Get the ID of the question
+      var questionId = $(this).attr('href').split('=')[1];
+      // Make an AJAX request to get the details of the question
+      $.ajax({
+        url: 'getQuestionDetails.php?id=' + questionId,
+        success: function(data) {
+          // Set the content of the modal to the details of the question
+          $('#myModal .modal-body').html(data);
+          // Show the modal
+          $('#myModal').modal('show');
+        }
+      });
+      // Prevent the default behavior of the button
+      return false;
+    });
+  });
+</script>
     <!-- footer file -->
 	<?php include('footer.php'); ?>
   </body>
