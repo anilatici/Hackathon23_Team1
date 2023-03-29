@@ -68,25 +68,11 @@ foreach($questions as $question){
                 $stmt->closeCursor();
                 $count++;
             }
-
-            $size = count($question["correctAns"]);
-            for ($i = 0; $i < count($question["answer"]); $i++) {
-                echo $question["answer"][$i];
-                if (isset($question["correctAns"][$i])) {
-                    echo "true";
-                } else {
-                    echo "false";
-                }
-                echo '<br>';
-            }
-
         }
     }
+
+    header("Location: index.php");
 
 }
 
 ?>
-<pre>
-<?php var_dump($questions);?>
-
-</pre>
