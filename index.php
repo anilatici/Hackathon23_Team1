@@ -80,24 +80,30 @@ $stmt->closeCursor();
     </section><br><br><br>
   </main><!-- /.container -->
     <script src="js/bootstrap.bundle.min.js"></script>
-<script>
-  $(document).ready(function() {
-    // Add a click event listener to the "More Details" button
-    $('.btn-primary').click(function() {
-      // Get the ID of the question
-      var questionId = $(this).attr('href').split('=')[1];
-      // Make an AJAX request to get the details of the question
-      $.ajax({
-        url: 'getQuestionDetails.php?id=' + questionId,
-        success: function(data) {
-          // Set the content of the modal to the details of the question
-          $('#myModal .modal-body').html(data);
-          // Show the modal
-          $('#myModal').modal('show');
-        }
+    <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Get all "More Details" buttons
+    var buttons = document.querySelectorAll('.btn-primary');
+    // Add a click event listener to each button
+    buttons.forEach(function(button) {
+      button.addEventListener('click', function(event) {
+        // Prevent the default behavior of the button
+        event.preventDefault();
+        // Get the ID of the question
+        var questionId = this.getAttribute('href').split('=')[1];
+        // Make an AJAX request to get the details of the question
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+          if (this.readyState === 4 && this.status === 200) {
+            // Set the content of the modal to the details of the question
+            document.querySelector('#myModal .modal-body').innerHTML = this.responseText;
+            // Show the modal
+            document.querySelector('#myModal').classList.add('show');
+          }
+        };
+        xhr.open('GET', 'getQuestionDetails.php?id=' + questionId, true);
+        xhr.send();
       });
-      // Prevent the default behavior of the button
-      return false;
     });
   });
 </script>
