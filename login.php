@@ -4,7 +4,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "quizzapp";
+$dbname = "QuizzApp";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -13,11 +13,16 @@ if ($conn->connect_error) {
 } 
 
 // Step 2: Create the login form
-echo "<form action='login.php' method='post'>
-      Email: <input type='text' name='email'><br>
-      Password: <input type='password' name='password'><br>
-      <input type='submit' value='Login'>
-      </form>";
+echo "
+  <form class='form-signin' action='login.php' method='post'>
+    <h1 class='h3 mb-3 font-weight-normal'>Login</h1>
+    <label for='inputEmail' class='sr-only'>Email address</label>
+    <input type='email' name='email' id='inputEmail' class='form-control' placeholder='Email address' required autofocus>
+    <label for='inputPassword' class='sr-only'>Password</label>
+    <input type='password' name='password' id='inputPassword' class='form-control' placeholder='Password' required>
+    <button class='btn btn-lg btn-primary btn-block' type='submit'>Sign in</button>
+  </form>
+";
 
 // Step 3: Validate input
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -43,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       session_start();
       $_SESSION["name"] = $row["name"];
       $_SESSION["email"] = $row["email"];
-      $_SESSION["id"] = $row["userid"];
+      $_SESSION["id"] = $row["id"];
 
       // Step 7: Redirect to the homepage
       header("Location: index.php");
@@ -62,3 +67,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $conn->close();
 
 ?>
+
+</div>
+
+    </section><br><br><br>
+  </main><!-- /.container -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- footer file -->
+	<?php include('footer.php'); ?>
+  </body>
+</html>
+
