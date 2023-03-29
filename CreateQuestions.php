@@ -1,30 +1,53 @@
 <?php
-?>
 
-<!Doctype html>
+?>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>CreateQuestion</title>
-</head>
-<body>
-<form method="post" action="addQuestion.php" enctype="multipart/form-data">
-    <div id="formField">
-        <label>Title: </label>
-        <input type="text" name="title"/>
-    </div>
-    <input type="submit" value="Submit"/>
-</form>
-<!--            <button onclick="addQuestion()" >Add</button>-->
-<select name="addQuestions" id="addQuestions">
-    <option value="1">Question Input</option>
-    <option value="3">Multi Choices</option>
-    <option value="2">Single Choices</option>
-</select>
-<button onclick="QuestionController(document.getElementById('addQuestions').value)">Add</button>
-</body>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="images/favicon.png" />
+    <title>Create Question</title>
+    <!-- Bootstrap core CSS -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="mystyle.css?v=1" rel="stylesheet">
+  </head>
+  <body>
+    <!-- nav bar file -->
+	<?php include('nav.php'); ?>
 
-<script>
+  <main class="container my-5">
+    <div class="container">
+    <h1>Create Question</h1>
+    <form method="post" action="addQuestion.php" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="title" class="form-label">Title:</label>
+            <input type="text" class="form-control" id="title" name="title">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    <div class="mt-3">
+        <label for="addQuestions" class="form-label">Select question type:</label>
+        <select class="form-select" id="addQuestions">
+            <option value="1">Question Input</option>
+            <option value="3">Multi Choices</option>
+            <option value="2">Single Choices</option>
+        </select>
+        <button class="btn btn-primary" onclick="QuestionController(document.getElementById('addQuestions').value)">Add</button>
+    </div>
+</div>
+
+<div class="container mt-3" id="formField"></div>
+  </div>
+    </section><br><br><br>
+  </main><!-- /.container -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- footer file -->
+	<?php include('footer.php'); ?>
+  </body>
+  <script>
     var formField = document.getElementById("formField");
     var questions = 0;
     let questionList = ["A","B", "C", "D"];
@@ -142,9 +165,6 @@
         formField.appendChild(input);
 
     }
-
-
-
 </script>
 </html>
 

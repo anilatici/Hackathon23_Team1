@@ -26,6 +26,13 @@ CREATE TABLE scores (
                         quiz_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
+CREATE TABLE users (
+                        userid int(10) PRIMARY KEY NOT NULL,
+                        name varchar(255) NOT NULL,
+                        email varchar(255) NOT NULL,
+                        password varchar(255) NOT NULL
+);
+
 
 INSERT INTO questions (question_id, question_text)
 VALUES
