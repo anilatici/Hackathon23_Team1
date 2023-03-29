@@ -1,5 +1,36 @@
 <?php
-require_once('database.php');
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+include 'database.php';
+session_start();
+if(isset($_SESSION['email'])){
+    $email = $_SESSION['email'];
+    $sql = "SELECT * FROM users WHERE email = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(1, $email);
+    $stmt->execute();
+    $user = $stmt->fetch();
+    $stmt->closeCursor();
+}
+
+$sql2 = "SELECT * FROM users WHERE email = ?";
+$stmt = $conn->prepare($sql2);
+$stmt->bindParam(1, $email);
+$stmt->execute();
+$user = $stmt->fetch();
+$stmt->closeCursor();
+
+if(isset($_SESSION["email"])){
+    $sql = "SELECT * FROM questionGroups inner join questions on questionGroups.id = questions.question_id where questionGroups.user_id = ?";
+    $stmt->bindParam(1, $user["id"]);
+} else {
+    $sql = "SELECT * FROM questionGroups inner join questions on questionGroups.id = questions.question_id where questionGroups.id = 1";
+}
+$stmt = $conn->prepare($sql);
+$stmt->execute();
+$questions = $stmt->fetchAll();
+$stmt->closeCursor();
 
 // Get Missions
 $queryMissions = 'SELECT * FROM missions';
@@ -31,13 +62,12 @@ $statement->closeCursor();
     </div>
     <div class="container">
   <div class="row">
-    <?php foreach ($missions as $mission) : ?>
+    <?php foreach ($questions as $question) : ?>
       <div class="col-md-4">
         <div class="card mb-4">
-          <img class="card-img-top" src="<?php echo $mission['image']; ?>" alt="<?php echo $mission['mission_name']; ?>" height = "250px" width = "200px">
           <div class="card-body">
-            <h5 class="card-title"><?php echo $mission['mission_name']; ?></h5>
-            <a href="mission.php?id=<?php echo $mission['mission_id']; ?>" class="btn btn-primary">More Details</a>
+            <h5 class="card-title"><?php echo $question["title"]; ?></h5>
+            <a href="mission.php?id=<?php echo $question['id']; ?>" class="btn btn-primary">More Details</a>
           </div>
         </div>
       </div>
