@@ -5,6 +5,7 @@ error_reporting(E_ALL);
 include 'database.php';
 session_start();
 
+$loggedin = false;
 if(isset($_SESSION["id"])){
     $id = $_SESSION["id"];
     $sql = "SELECT * FROM questionGroups inner join questions on questionGroups.id = questions.question_id where questionGroups.user_id = ?";
