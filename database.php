@@ -1,5 +1,5 @@
 <?php
-    $dsn = 'mysql:host=localhost;dbname=restaurant';
+    $dsn = 'mysql:host=localhost;dbname=quizzapp';
     $username = 'root';
     $password = '';
 

@@ -26,7 +26,7 @@
 </head>
 <body>
     <main>
-        <h1>Product Discount Calculator</h1>
+        <h1>Quiz</h1>
 
         <label>Product Name:</label>
         <span><?php echo htmlspecialchars($product_name); ?></span><br>

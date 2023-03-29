@@ -63,10 +63,10 @@
              <a class="nav-link"  class="navbar-brand" href="index.php">MAIN</a>
                 </li>
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="page-1.php">RESTAURANTS</a>
+                <a class="nav-link" aria-current="page" href="page-1.php">QUESTIONS</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="page-2.php">FOOD</a>
+                <a class="nav-link" aria-current="page" href="page-2.php">ANSWERS</a>
               </li>
 <!--              <li class="nav-item">-->
 <!--                <a class="nav-link" aria-current="page" href="page-3.php">Page 3</a>-->
@@ -74,6 +74,10 @@
 <!--                </li>-->
                 <li class="nav-item">
                 <a class="nav-link" aria-current="page" href="contact.php">CONTACT</a>
+                </li>
+
+                     <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="contact.php">REGISTER</a>
                 </li>
             </ul>
           </span>

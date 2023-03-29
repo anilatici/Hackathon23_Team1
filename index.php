@@ -15,9 +15,9 @@
             <div class="mainIndex">
 
                 <div class="starter-template text-center" style="padding: 25px">
-                    <h1 class="my-heading">KFC Restaurants, IRELAND </h1>
-                    <p class="my-heading" class="lead">Select your Favorite<br>
-                        Always making you happy</p> <br>
+                    <h1 class="my-heading">QUIZ, IRELAND </h1>
+                    <p class="my-heading" class="lead">Choose answer<br>
+                       ........................</p> <br>
                 </div>
 
                 <div class="flex">

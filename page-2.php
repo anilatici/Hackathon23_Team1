@@ -4,7 +4,7 @@ require_once('database.php');
 
 
 // Get branches
-$queryBranches = 'SELECT * FROM kfc_menu';
+$queryBranches = 'SELECT * FROM questions';
 $statement = $db->prepare($queryBranches);
 $statement->execute();
 $branches = $statement->fetchAll();
@@ -40,23 +40,15 @@ $statement->closeCursor();
 
             <table>
                 <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Category</th>
-                    <th>Price</th>
-                    <th>Calories</th>
-                    <th>Allergens</th>
+                    <th>Questions_id</th>
+                    <th>Questions_text</th>
 
                 </tr>
 
                 <?php foreach ($branches as $branch) : ?>
                     <tr>
-                        <td><?php echo $branch['item_id']; ?></td>
-                        <td><?php echo $branch['item_name']; ?></td>
-                        <td><?php echo $branch['category']; ?></td>
-                        <td><?php echo $branch['price']; ?></td>
-                        <td><?php echo $branch['calories']; ?></td>
-                        <td><?php echo $branch['allergens']; ?></td>
+                        <td><?php echo $branch['question_id']; ?></td>
+                        <td><?php echo $branch['question_text']; ?></td>
 
 
                     </tr>
