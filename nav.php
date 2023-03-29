@@ -1,7 +1,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Nav Bar">
   <div class="container-fluid">
   <a class="navbar-brand" href="index.php">
-      <img src="images/nasa.png" alt="Logo" width="40" height="33" class="d-inline-block align-text-top me-2">
+      <img src="images/icon.png" alt="Logo" width="40" height="33" class="d-inline-block align-text-top me-2">
       EnQUIZment
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
